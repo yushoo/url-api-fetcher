@@ -1,26 +1,23 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
 function App() {
+  //state hook, count initialized to 0
+  const [count, setCount] = useState(0);
+
+  //after button has pressed, after rendering, update the count
+  useEffect(() => {
+    document.title = `${count}`;
+  });
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+   <div> 
+    <p>Count: {count}</p>
+    <button onClick={() => setCount(count + 1)}>click here</button>
+   </div>
   );
+
 }
 
 export default App;
