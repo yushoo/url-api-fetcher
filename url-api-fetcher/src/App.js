@@ -8,20 +8,28 @@ import {Button, Container, Row, Col} from 'react-bootstrap';
 function App() {
   //state hook, count initialized to 0
   //const [count, setCount] = useState(0);
+  const [item, setItem] = useState(null);
 
-  //after button has pressed, after rendering, update the count
-  useEffect(() => {
-    //document.title = `${count}`;
-  });
+  //after fetch button has pressed, await for the api to send information
+  useEffect(async () => {
+    const response = await fetch('https://randomuser.me/api/');
+    //turn response into json format
+    const data = await response.json();
+    console.log(data);
+    const item = data.results[0];
+    setItem(item);
+  }, []);
 
   return (
    <div> 
-     <Container>
-       <Row className="justify-content-md-center mt-5">
+     <Container className="mt-5">
+       <Row className="justify-content-md-center">
          <Col></Col>
-         <Col md="auto">
-            <p>Fetcher</p>
+         <Col className="justify-content-md-center">
+            <h1>Fetcher</h1>
             <Button>fetch</Button>
+            <p>Data</p>
+            {item && <div>{item.name.first}</div>}
          </Col>
          <Col></Col>
         </Row>
