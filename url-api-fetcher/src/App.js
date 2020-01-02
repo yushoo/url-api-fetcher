@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
-
-import {Button, Container, Row, Col} from 'react-bootstrap';
+import 'antd/dist/antd.css';
+import {Button, Row, Col} from 'antd';
+//import {Button, Container, Row, Col} from 'react-bootstrap';
 
 function App() {
   //state hook, count initialized to 0
@@ -30,18 +30,16 @@ function App() {
 
   return (
    <div> 
-     <Container className="mt-5">
-       <Row className="justify-content-md-center">
-         <Col></Col>
-         <Col className="justify-content-md-center">
-            <h1>Fetcher</h1>
-            <Button onClick={newFetch}>fetch</Button>
-            <p>Data</p>
-            {item && <div>{item.name.first}</div>}
+       <Row Row type="flex" justify="space-between">
+         <Col span={4}></Col>
+         <Col  span={4}>
+                <h1>Fetcher</h1>
+                <Button onClick={newFetch}>fetch</Button>
+                <p>Data</p>
+                {item && <div>{item.name.first}</div>}
          </Col>
-         <Col></Col>
+         <Col span={4}></Col>
         </Row>
-     </Container>
    </div>
   );
 
