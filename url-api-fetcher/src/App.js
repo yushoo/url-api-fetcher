@@ -46,7 +46,7 @@ function App() {
               <h1 className="mainContent" id="mainTitle">Fetcher</h1>
               <Form onSubmit={handleSubmit}>
                 <Form.Item className="mainContent" id="fetchUrl" label="api url"  >
-                  <Input type="text" onChange={e => setUrl(e.target.value)}></Input>
+                  <Input type="text" onChange={e => setUrl(e.target.value)} placeholder="https://randomuser.me/api/"></Input>
                   <div className="userInput">
                     <Button className="" id="fetchButton" htmlType="submit">fetch</Button>
                   <p className="">Data:</p>
