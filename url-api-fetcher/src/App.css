@@ -28,6 +28,10 @@
   color: #61dafb;
 }
 
+.outerContainer {
+  margin-top: 2.5%;
+}
+
 .mainContent {
   text-align: center;
 }

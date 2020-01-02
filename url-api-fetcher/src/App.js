@@ -29,7 +29,7 @@ function App() {
   }
 
   return (
-   <div> 
+   <div className="outerContainer"> 
        <Row Row type="flex" justify="space-between">
          <Col span={4}></Col>
          <Col span={4}>
