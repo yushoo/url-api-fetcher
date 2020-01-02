@@ -5,14 +5,17 @@ import 'antd/dist/antd.css';
 import {Button, Row, Col, Form, Input} from 'antd';
 //import {Button, Container, Row, Col} from 'react-bootstrap';
 
+//test api url
+//'https://randomuser.me/api/'
+
 function App() {
   //state hook, count initialized to 0
   //const [count, setCount] = useState(0);
   const [item, setItem] = useState(null);
 
   //after fetch button has pressed, await for the api to send information
-  useEffect(async () => {
-    const response = await fetch('https://randomuser.me/api/');
+  useEffect(async (url) => {
+    const response = await fetch(url);
     //turn response into json format
     const data = await response.json();
     console.log(data);
@@ -21,8 +24,8 @@ function App() {
   }, []);
 
   //makes to fetch api request
-  const newFetch = async () => {
-    const response = await fetch('https://randomuser.me/api/');
+  const newFetch = async (url) => {
+    const response = await fetch(url);
     const data = await response.json();
     const item = data.results[0];
     setItem(item);
