@@ -10,9 +10,7 @@ import {Button, Row, Col, Form, Input} from 'antd';
 
 function App() {
   //state hook, count initialized to 0
-  //const [count, setCount] = useState(0);
   const [item, setItem] = useState(null);
-  const[temp, setTemp]  = useState('');
   const [url, setUrl]   = useState('');
 
   //after fetch button has pressed, await for the api to send information
@@ -33,12 +31,11 @@ function App() {
     setItem(item);
   }
 
+  //cant use generic function otherwise the function call will cause an infinite loop. 
+  //use an event handler for a form
   const handleSubmit = (event) => {
     event.preventDefault();
-    //setUrl(temp);
     newFetch();
-    //alert('WOKRINAGRASDGASDGGADSAGDS');
-    
   }
 
   return (
@@ -50,10 +47,8 @@ function App() {
               <Form onSubmit={handleSubmit}>
                 <Form.Item className="mainContent" id="fetchUrl" label="api url"  >
                   <Input type="text" onChange={e => setUrl(e.target.value)}></Input>
-                  {/* <p>{url}</p> */}
                   <div className="userInput">
                     <Button className="" id="fetchButton" htmlType="submit">fetch</Button>
-                    {/* <input type="submit" value="Submit" /> */}
                   <p className="">Data:</p>
                   </div>
                   <div style={{ background: '#ffffff', padding: '0px', borderRadius: '10px' }}>
