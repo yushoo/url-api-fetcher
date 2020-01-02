@@ -12,6 +12,7 @@ function App() {
   //state hook, count initialized to 0
   //const [count, setCount] = useState(0);
   const [item, setItem] = useState(null);
+  const [url, setUrl]   = useState('');
 
   //after fetch button has pressed, await for the api to send information
   useEffect(async (url) => {
@@ -38,7 +39,8 @@ function App() {
          <Col span={4}>
               <h1 className="mainContent" id="mainTitle">Fetcher</h1>
               <Form.Item className="mainContent" id="fetchUrl" label="api url" >
-                <Input></Input>
+                <Input type="text" onChange={e => setUrl(e.target.value)}></Input>
+                {/* <p>{url}</p> */}
                 <div className="userInput">
                   <Button className="" id="fetchButton" onClick={newFetch}>fetch</Button>
                 <p className="">Data:</p>
@@ -47,7 +49,6 @@ function App() {
                   {item && <div className="">{item.name.first}</div>}
                 </div>
               </Form.Item>
-              
          </Col>
          <Col span={4}></Col>
         </Row>
