@@ -20,6 +20,14 @@ function App() {
     setItem(item);
   }, []);
 
+  //makes to fetch api request
+  const newFetch = async () => {
+    const response = await fetch('https://randomuser.me/api/');
+    const data = await response.json();
+    const item = data.results[0];
+    setItem(item);
+  }
+
   return (
    <div> 
      <Container className="mt-5">
@@ -27,7 +35,7 @@ function App() {
          <Col></Col>
          <Col className="justify-content-md-center">
             <h1>Fetcher</h1>
-            <Button>fetch</Button>
+            <Button onClick={newFetch}>fetch</Button>
             <p>Data</p>
             {item && <div>{item.name.first}</div>}
          </Col>
