@@ -32,11 +32,13 @@ function App() {
    <div> 
        <Row Row type="flex" justify="space-between">
          <Col span={4}></Col>
-         <Col  span={4}>
-                <h1>Fetcher</h1>
-                <Button onClick={newFetch}>fetch</Button>
-                <p>Data</p>
-                {item && <div>{item.name.first}</div>}
+         <Col span={4}>
+              <h1 className="mainContent">Fetcher</h1>
+              <div className="mainContent">
+                <Button className="mainContent" onClick={newFetch}>fetch</Button>
+              </div>
+              <p className="mainContent">Data</p>
+              {item && <div className="mainContent">{item.name.first}</div>}
          </Col>
          <Col span={4}></Col>
         </Row>
