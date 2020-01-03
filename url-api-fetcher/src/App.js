@@ -54,7 +54,7 @@ function App() {
   const urls = ['https://randomuser.me/api/', 'https://api.thecatapi.com/v1/images/search', 'https://baconipsum.com/api/?type=meat-and-filler'];
 
   const menu = (
-    <Menu>
+    <Menu className="dropDownElements">
        <Menu.Item>
          <p onClick={e =>setInput(urls[0])}>https://randomuser.me/api/</p>
       </Menu.Item>
@@ -77,7 +77,7 @@ function App() {
               <div class="dropDown">
               <Dropdown overlay={menu} className="dropDown">
                 <a className="ant-dropdown-link" href="#">
-                  Hover for api url's <Icon type="down" />
+                  api url's <Icon type="down" />
                 </a>
               </Dropdown>
               </div>

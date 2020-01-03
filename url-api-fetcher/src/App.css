@@ -51,6 +51,12 @@ a {
 
 .dropDown {
   text-align: center;
+  background-color: #ffc53d;
+  border-radius: 5px;
+}
+
+.dropDownElements {
+  text-align: center;
 }
 
 .mainContent {
@@ -66,6 +72,8 @@ a {
   padding: 0px;
   width: auto;
   border-radius: 10px;
+  margin-bottom: 35px;
+
 }
 
 #fetchButton {
