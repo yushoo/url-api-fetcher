@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import 'antd/dist/antd.css';
-import {Button, Row, Col, Form, Input} from 'antd';
+import {Button, Row, Col, Form, Input, Dropdown, Menu, Icon} from 'antd';
 import ReactJson from 'react-json-view';
 //import {Button, Container, Row, Col} from 'react-bootstrap';
 
@@ -44,15 +44,31 @@ function App() {
     newFetch();
   }
 
+  const menu = (
+    <Menu>
+       <Menu.Item>
+        <a target="_blank" rel="noopener noreferrer" href="">
+          1st menu item
+        </a>
+      </Menu.Item>
+    </Menu>
+  );
+
   return (
    <div className="outerContainer" style={{ background: '#5cdbd3', padding: '30px' }}> 
        <Row Row type="flex" justify="space-between">
          <Col span={4}></Col>
          <Col span={4}>
               <h1 className="mainContent" id="mainTitle">Fetcher</h1>
+              <div class="dropDown">
+              <Dropdown overlay={menu} className="dropDown">
+                <a className="ant-dropdown-link" href="#">
+                  Hover me <Icon type="down" />
+                </a>
+              </Dropdown>
+              </div>
               <Form onSubmit={handleSubmit}>
                 <Form.Item className="mainContent" id="fetchUrl" label="api url"  >
-                  <p>( https://randomuser.me/api/ )</p>
                   <Input type="text" onChange={e => setUrl(e.target.value)} placeholder="https://randomuser.me/api/"></Input>
                   <div className="userInput">
                     <Button className="" id="fetchButton" htmlType="submit">fetch</Button>

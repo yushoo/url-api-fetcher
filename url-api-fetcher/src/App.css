@@ -40,9 +40,17 @@ body {
   background-color: #5cdbd3;
 }
 
+a {
+  text-align: center;
+}
+
 .outerContainer {
   margin-top: 2.5%;
   height: 100vh;
+}
+
+.dropDown {
+  text-align: center;
 }
 
 .mainContent {
