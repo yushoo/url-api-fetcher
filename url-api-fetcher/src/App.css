@@ -28,6 +28,10 @@
   color: #61dafb;
 }
 
+body {
+  background-color: red;
+}
+
 .outerContainer {
   margin-top: 2.5%;
   height: 100vh;
@@ -39,6 +43,13 @@
 
 .userInput {
   text-align: center;
+}
+
+.dataOutput {
+  background-color: #ffffff;
+  padding: 0px;
+  width: auto;
+  border-radius: 10px;
 }
 
 #fetchButton {
