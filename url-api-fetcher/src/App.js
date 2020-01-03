@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import 'antd/dist/antd.css';
@@ -12,9 +12,11 @@ import ReactJson from 'react-json-view';
 
 function App() {
   //state hook, count initialized to 0
-  const [item, setItem] = useState(null);
-  const [data, setData] = useState(null);
-  const [url, setUrl]   = useState('');
+  const [item, setItem]   = useState(null);
+  const [data, setData]   = useState(null);
+  const [url, setUrl]     = useState('');
+  const [ref, setRef]     = useState(null);
+  const [input, setInput] = useState('');
   
  
   //after fetch button has pressed, await for the api to send information
@@ -34,8 +36,13 @@ function App() {
     //const item = data.results[0];
     setData(tData);
     console.log(data);
-    setItem(item);
+    //setItem(item);
   }
+
+  //method to copy url from dropdown menu
+  // const copy = (event,id) => {
+
+  // }
 
   //cant use generic function otherwise the function call will cause an infinite loop. 
   //use an event handler for a form
@@ -44,12 +51,18 @@ function App() {
     newFetch();
   }
 
+  const urls = ['https://randomuser.me/api/', 'https://api.thecatapi.com/v1/images/search', 'https://baconipsum.com/api/?type=meat-and-filler'];
+
   const menu = (
     <Menu>
        <Menu.Item>
-        <a target="_blank" rel="noopener noreferrer" href="">
-          1st menu item
-        </a>
+         <p onClick={e =>setInput(urls[0])}>https://randomuser.me/api/</p>
+      </Menu.Item>
+      <Menu.Item>
+        <p onClick={e =>setInput(urls[1])}>https://api.thecatapi.com/v1/images/search</p>
+      </Menu.Item>
+      <Menu.Item>
+        <p onClick={e =>setInput(urls[2])}>https://baconipsum.com/api/?type=meat-and-filler</p>
       </Menu.Item>
     </Menu>
   );
@@ -60,18 +73,25 @@ function App() {
          <Col span={4}></Col>
          <Col span={4}>
               <h1 className="mainContent" id="mainTitle">Fetcher</h1>
+              {/* <p>{input}</p> */}
               <div class="dropDown">
               <Dropdown overlay={menu} className="dropDown">
                 <a className="ant-dropdown-link" href="#">
-                  Hover me <Icon type="down" />
+                  Hover for api url's <Icon type="down" />
                 </a>
               </Dropdown>
               </div>
               <Form onSubmit={handleSubmit}>
                 <Form.Item className="mainContent" id="fetchUrl" label="api url"  >
-                  <Input type="text" onChange={e => setUrl(e.target.value)} placeholder="https://randomuser.me/api/"></Input>
+                <Input 
+                  type="text"
+                  placeholder="https://randomuser.me/api/" 
+                  type="text" 
+                  value={input} 
+                  onChange={e => setInput(e.target.value)}
+                  ></Input>
                   <div className="userInput">
-                    <Button className="" id="fetchButton" htmlType="submit">fetch</Button>
+                    <Button className="" id="fetchButton" htmlType="submit" onClick={e => setUrl(input)}>fetch</Button>
                   <p className="">Data:</p>
                   </div>
                   
